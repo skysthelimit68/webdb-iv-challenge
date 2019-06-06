@@ -12,11 +12,24 @@ const db = knex(knexConfig.development);
 module.exports = {
     getDishes,
     addDish,
-    getDish,
+    getDish, //by id
 }
 
 function getDishes() {
     return db('dishes')
+}
+
+function getDish(id) {
+    return db
+    .select('dishes.id', 'dishes.name', 'recipes.name as recipe')
+    .from('recipes')
+    .leftJoin('dishes', 'recipes.dish_id', 'dishes.id')
+    .where('dishes.id', id)
+}
+
+function addDish(dish) {
+    return db('dishes')
+    .insert(dish, 'id')
 }
 
 

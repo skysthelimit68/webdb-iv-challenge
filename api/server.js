@@ -7,7 +7,7 @@ const server = express();
 
 server.use(express.json());
 server.use('/api/dishes', dishesRouter);
-server.use('/api/recipe', recipeRouter);
+server.use('/api/recipes', recipeRouter);
 server.use(helmet());
 
 module.exports = server;
