@@ -50,24 +50,4 @@ router.get("/:id", (req, res) => {
     })
 })
 
-
-//middleware
-/*function validateRecipeId(req, res, next) {
-    Dishes.getDish(req.params.id) 
-    .then( dish => {
-        if(dish.length < 1) {
-            res.status(404).json({message: "dish not found"})
-        } else {
-            req.body.dish = dish
-            next();
-        }
-    })
-    .catch( error => {
-        res.status(500).json(error)
-    })
-}*/
-
-
-
-
 module.exports = router;
